@@ -1,0 +1,58 @@
+int led = D7;
+void setup() {
+    pinMode(led, OUTPUT);
+}
+
+/*
+    Handles Morse Code LED
+            logic
+
+*/
+void Morse_Code(int led, bool notLong)
+{
+    //  .   (Short)
+    if (notLong == true)
+    {
+        digitalWrite(led, HIGH);
+        delay(1000);
+        digitalWrite(led, LOW);
+        delay(1000);
+    }
+    //  -   (Long)
+    else    
+    {
+        digitalWrite(led, HIGH);
+        delay(2000);
+        digitalWrite(led, LOW);
+        delay(1000);
+    }
+}
+
+void loop() {
+    /*
+    LED blinks RILEY in Morse Code
+    */
+    //R .-.
+    Morse_Code(led, true);
+    Morse_Code(led, false);
+    Morse_Code(led, true);
+    
+    //I ..
+    Morse_Code(led, true);
+    Morse_Code(led, true);
+    
+    //L .-..
+    Morse_Code(led, true);
+    Morse_Code(led, false);
+    Morse_Code(led, true);
+    Morse_Code(led, true);
+    
+    //E .
+    Morse_Code(led, true);
+    
+    //Y -.--
+    Morse_Code(led, false);
+    Morse_Code(led, true);
+    Morse_Code(led, false);
+    Morse_Code(led, false);
+}
